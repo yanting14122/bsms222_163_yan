@@ -185,12 +185,69 @@ pre code {
 <div id="tidy-data" class="section level1">
 <h1>4.1 Tidy data</h1>
 <p>We say that a data table is in tidy format if each row represents one observation and columns represent the different variables available for each of these observations. The murders dataset is an example of a tidy data frame.</p>
-<pre class="r"><code>head(dslabs::murders)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["state"],"name":[1],"type":["chr"],"align":["left"]},{"label":["abb"],"name":[2],"type":["chr"],"align":["left"]},{"label":["region"],"name":[3],"type":["fct"],"align":["left"]},{"label":["population"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["total"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Alabama","2":"AL","3":"South","4":"4779736","5":"135","_rn_":"1"},{"1":"Alaska","2":"AK","3":"West","4":"710231","5":"19","_rn_":"2"},{"1":"Arizona","2":"AZ","3":"West","4":"6392017","5":"232","_rn_":"3"},{"1":"Arkansas","2":"AR","3":"South","4":"2915918","5":"93","_rn_":"4"},{"1":"California","2":"CA","3":"West","4":"37253956","5":"1257","_rn_":"5"},{"1":"Colorado","2":"CO","3":"West","4":"5029196","5":"65","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre class="r"><code>pander::pander(head(dslabs::murders))</code></pre>
+<table style="width:68%;">
+<colgroup>
+<col width="18%" />
+<col width="8%" />
+<col width="12%" />
+<col width="18%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">state</th>
+<th align="center">abb</th>
+<th align="center">region</th>
+<th align="center">population</th>
+<th align="center">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Alabama</td>
+<td align="center">AL</td>
+<td align="center">South</td>
+<td align="center">4779736</td>
+<td align="center">135</td>
+</tr>
+<tr class="even">
+<td align="center">Alaska</td>
+<td align="center">AK</td>
+<td align="center">West</td>
+<td align="center">710231</td>
+<td align="center">19</td>
+</tr>
+<tr class="odd">
+<td align="center">Arizona</td>
+<td align="center">AZ</td>
+<td align="center">West</td>
+<td align="center">6392017</td>
+<td align="center">232</td>
+</tr>
+<tr class="even">
+<td align="center">Arkansas</td>
+<td align="center">AR</td>
+<td align="center">South</td>
+<td align="center">2915918</td>
+<td align="center">93</td>
+</tr>
+<tr class="odd">
+<td align="center">California</td>
+<td align="center">CA</td>
+<td align="center">West</td>
+<td align="center">37253956</td>
+<td align="center">1257</td>
+</tr>
+<tr class="even">
+<td align="center">Colorado</td>
+<td align="center">CO</td>
+<td align="center">West</td>
+<td align="center">5029196</td>
+<td align="center">65</td>
+</tr>
+</tbody>
+</table>
 <p>Each row represent a state with each of the five columns providing a different variable related to these states: name, abbreviation, region, population, and total murders.</p>
 <p>To see how the same information can be provided in different formats, consider the following example:</p>
 <pre class="r"><code>#&gt;       country year fertility
@@ -216,22 +273,104 @@ pre code {
 <ol start="2" style="list-style-type: decimal">
 <li>Examine the built-in dataset ChickWeight. Which of the following is true:</li>
 </ol>
-<pre class="r"><code>head(ChickWeight)</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["weight"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Time"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Chick"],"name":[3],"type":["ord"],"align":["right"]},{"label":["Diet"],"name":[4],"type":["fct"],"align":["left"]}],"data":[{"1":"42","2":"0","3":"1","4":"1","_rn_":"1"},{"1":"51","2":"2","3":"1","4":"1","_rn_":"2"},{"1":"59","2":"4","3":"1","4":"1","_rn_":"3"},{"1":"64","2":"6","3":"1","4":"1","_rn_":"4"},{"1":"76","2":"8","3":"1","4":"1","_rn_":"5"},{"1":"93","2":"10","3":"1","4":"1","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre class="r"><code>pander::pander(head(ChickWeight))</code></pre>
+<table style="width:44%;">
+<colgroup>
+<col width="12%" />
+<col width="9%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">weight</th>
+<th align="center">Time</th>
+<th align="center">Chick</th>
+<th align="center">Diet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">42</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">51</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">59</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">64</td>
+<td align="center">6</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">76</td>
+<td align="center">8</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">93</td>
+<td align="center">10</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>#b. ChickWeight is tidy: each observation (a weight) is represented by one row. The chick from which this measurement came is one of the variables.</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Examine the built-in dataset BOD. Which of the following is true:</li>
 </ol>
-<pre class="r"><code>BOD</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Time"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["demand"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"8.3"},{"1":"2","2":"10.3"},{"1":"3","2":"19.0"},{"1":"4","2":"16.0"},{"1":"5","2":"15.6"},{"1":"7","2":"19.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<pre class="r"><code>pander::pander(BOD)</code></pre>
+<table style="width:22%;">
+<colgroup>
+<col width="9%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Time</th>
+<th align="center">demand</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">8.3</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">10.3</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">19</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">16</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">15.6</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">19.8</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>#c. BOD is tidy: each row is an observation with two values (time and demand)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Which of the following built-in datasets is tidy (you can pick more than one):</li>
